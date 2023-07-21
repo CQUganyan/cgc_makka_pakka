@@ -1,0 +1,39 @@
+程序代码运行环境为：
+    CPU:               Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz
+    操作系统:           Ubuntu 21.10
+    g++或gcc编译器:     9.4.0
+    OpenBLAS版本:       OpenBLAS 0.3.23
+
+一、测试之前需要安装第三方库:
+    本项目使用第三方库 OpenBLAS (指定安装路径为/home/gy，用户可根据情况自行修改该路径)
+
+    安装步骤说明如下：
+        1.git clone https://github.com/xianyi/OpenBLAS.git
+        2.cd OpenBLAS
+        3.make FC=gfortran （如果没有安装gfortran,先安装gfortran,sudo apt-get install gfortran）
+        4.sudo make PREFIX=/home/gy install
+
+
+二、项目文件结构
+    cgc_makka_pakka
+    ├── makka_pakka
+    │   	├── source_code.cpp
+    │   	├── makefile
+    │   	└── README
+    ├── makka_pakka_report
+    │   	└── report.pdf
+    └── makka_pakka.exe
+
+
+三、代码运行使用说明
+    1.进入目录makka_pakka:
+        cd cgc_makka_pakka/makka_pakka
+
+    2.执行makefile文件,编译source_code.cpp的代码,生成可执行文件:
+        make
+
+    3.返回上级目录
+        cd ../
+
+    4.执行生成的可执行文件：
+        ./makka_pakka.exe 64 16 8 graph/1024_example_graph.txt embedding/1024.bin weight/W_64_16.bin weight/W_16_8.bin
